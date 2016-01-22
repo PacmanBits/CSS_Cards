@@ -1,0 +1,96 @@
+body
+{
+	font-size:                  40px;
+	font-family:                "Courier New", monospace;
+}
+
+.card
+{
+	background-image:           url("card_texture.png");
+	background-size:            auto 100%;
+	position:                   relative;
+	width:                      3em;
+	height:                     4.228em;
+	background-color:           white;
+	border-radius:              0.25em;
+	margin:                     0.25em;
+	cursor:                     pointer;
+	transition:                 transform 0.5s linear, background-position 0.25s steps(1, end);
+}
+
+.diamond,
+.heart
+{
+	color:                      red;
+}
+
+.spade,
+.club
+{
+	color:                      black;
+}
+
+.card > div::before
+{
+	position:                   absolute;
+	font-size:                  3em;
+	text-align:                 center;
+	width:                      2em;
+	margin-left:                -1em;
+	left:                       50%;
+	top:                        0.3em;
+	transition:                 opacity 0.25s steps(1, end);
+}
+
+.card::before
+{
+	position:                   absolute;
+	font-size:                  0.6em;
+	left:                       0.5em;
+	top:                        1.5em;
+	font-weight:                bold;
+	transition:                 opacity 0.25s steps(1, end);
+}
+
+.card::after
+{
+	position:                   absolute;
+	font-size:                  0.6em;
+	left:                       0.5em;
+	top:                        0.5em;
+	font-weight:                bold;
+	transition:                 opacity 0.25s steps(1, end);
+}
+
+.spade   > div::before , .spade::before   { content: "\2660"; }
+.club    > div::before , .club::before    { content: "\2663"; }
+.heart   > div::before , .heart::before   { content: "\2665"; }
+.diamond > div::before , .diamond::before { content: "\2666"; }
+
+.ace::after   { content: "A";  }
+.two::after   { content: "2";  }
+.three::after { content: "3";  }
+.four::after  { content: "4";  }
+.five::after  { content: "5";  }
+.six::after   { content: "6";  }
+.seven::after { content: "7";  }
+.eight::after { content: "8";  }
+.nine::after  { content: "9";  }
+.ten::after   { content: "10"; }
+.jack::after  { content: "J";  }
+.queen::after { content: "Q";  }
+.king::after  { content: "K";  }
+
+
+.flipped
+{
+	background-position:        100% 0;
+	transform:                  scaleX(-1);
+}
+
+.flipped::before,
+.flipped::after,
+.flipped > div::before
+{
+	opacity:                    0;
+}
